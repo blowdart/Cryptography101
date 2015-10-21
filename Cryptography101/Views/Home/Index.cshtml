@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>An introduction to cryptography.</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Caesar Cipher »",
+                actionName: "Index",
+                controllerName: "CaesarCipher",
+                routeValues: new {  },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Brute Force »",
+                actionName: "BruteForce",
+                controllerName: "CaesarCipher",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Frequency Analysis »",
+                actionName: "FrequencyAnalysis",
+                controllerName: "CaesarCipher",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Vigenère Cipher »",
+                actionName: "Index",
+                controllerName: "VigenereCipher",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Symmetric Encryption »",
+                actionName: "Index",
+                controllerName: "Symmetric",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Asymmetric Encryption »",
+                actionName: "Index",
+                controllerName: "Asymmetric",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Signed Asymmetric Encryption »",
+                actionName: "SignAndEncrypt",
+                controllerName: "Asymmetric",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>
+            @Html.ActionLink(
+                linkText: "Signed Xml Encryption »",
+                actionName: "Index",
+                controllerName: "Xml",
+                routeValues: new { },
+                htmlAttributes: new { @class = "btn btn-default" }
+                )
+        </p>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Vigenère Cipher";
+}
+
+<h1>Vigenère Cipher</h1>
+
+
+@using (Html.BeginForm("Index", "VigenereCipher", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <input type="hidden" name="command" value="encrypt" />
+    <h2>Encrypt</h2>
+    <div class="form-group">
+        <label for="plainText" class="control-label col-sm-2">Plain Text</label>
+        <input name="plainText" class="form-control col-sm-10" placeholder="plaintext (a-z)" pattern="[a-z]+" required title="lower case letters only." value="@ViewBag.PlainText">
+    </div>
+    <div class="form-group">
+        <label for="keyWord" class="control-label col-sm-2">Key Word</label>
+        <input name="keyWord" class="form-control col-sm-10" placeholder="Key Word" pattern="[a-z]+" required value="@ViewBag.KeyWord">
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Encrypt</button></div>
+    </div>
+}
+
+
+@using (Html.BeginForm("Index", "VigenereCipher", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <input type="hidden" name="command" value="decrypt" />
+    <h2>Decrypt</h2>
+    <div class="form-group">
+        <label for="cipherText" class="control-label col-sm-2">Cipher Text</label>
+        <input name="cipherText" class="form-control col-sm-10" placeholder="plaintext (a-z)" pattern="[a-z]+" required title="lower case letters only." value="@ViewBag.CipherText">
+    </div>
+    <div class="form-group">
+        <label for="keyWord" class="control-label col-sm-2">Key Word</label>
+        <input name="keyWord" class="form-control col-sm-10" placeholder="Key Word" pattern="[a-z]+" required value="@ViewBag.KeyWord">
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Decrypt</button></div>
+    </div>
+}

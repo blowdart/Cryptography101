@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Passwords";
+}
+
+<h2>Passwords</h2>
+
+@using (Html.BeginForm("Index", "Password", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <input type="hidden" name="command" value="hash" />
+    <h2>Encrypt</h2>
+    <div class="form-group">
+        <label for="password" class="control-label col-sm-2">Password</label>
+        <input name="password" class="form-control col-sm-10" placeholder="password" value="@ViewBag.Password">
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Hash</button></div>
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Password", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <input type="hidden" name="command" value="validate" />
+    <h2>Encrypt</h2>
+    if (!string.IsNullOrEmpty(ViewBag.Result))
+    {
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10">@ViewBag.Result</div>
+    </div>
+    }
+    <div class="form-group">
+        <label for="password" class="control-label col-sm-2">Password</label>
+        <input name="password" class="form-control col-sm-10" placeholder="password" value="@ViewBag.Password">
+    </div>
+    <div class="form-group">
+        <label for="salt" class="control-label col-sm-2">Salt</label>
+        <input name="salt" class="form-control col-sm-10" placeholder="salt" value="@ViewBag.Salt">
+    </div>
+    <div class="form-group">
+        <label for="hash" class="control-label col-sm-2">Hash</label>
+        <input name="hash" class="form-control col-sm-10" placeholder="password" value="@ViewBag.Hash">
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Validate</button></div>
+    </div>
+}
+

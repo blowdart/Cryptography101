@@ -1,0 +1,97 @@
+﻿@model Cryptography101.Controllers.SymmetricModel
+
+@{
+    ViewBag.Title = "Symmetric Encryption";
+}
+
+<h1>Symmetric Encryption</h1>
+
+
+@using (Html.BeginForm("Index", "Symmetric", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <h2>Encrypt</h2>
+    <input type="hidden" name="Action" value="encrypt" />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PlainText, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.PlainText, new
+   {
+       @class = "form-control col-sm-10",
+       @placeHolder = "plainText"
+   })
+    </div>
+    <div class="form-group">
+        <span class="control-label col-sm-2"></span>
+        <span class="col-sm-10">Leave blank to generate keys</span>
+    </div>
+    <div class="form-group">
+        <label for="key" class="control-label col-sm-2">Key</label>
+        @Html.TextBoxFor(m => m.Key, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Key (Base 64)"
+   })
+    </div>
+    <div class="form-group">
+        <label for="iv" class="control-label col-sm-2">IV</label>
+        @Html.TextBoxFor(m => m.IV, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Key (Base 64)"
+   })
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Encrypt</button></div>
+    </div>
+}
+
+
+@using (Html.BeginForm("Index", "Symmetric", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <h2>Decrypt</h2>
+    <input type="hidden" name="Action" value="decrypt" />
+    <div class="form-group">
+        @Html.LabelFor(m => m.CipherText, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.CipherText, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "ciphertext (base 64)",
+       @required = "",
+       @title = "base 64 only."
+   })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Signature, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.Signature, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "signature (base 64)",
+       @required = "",
+       @title = "base 64 only."
+   })
+    </div>
+    <div class="form-group">
+        <label for="key" class="control-label col-sm-2">Key</label>
+        @Html.TextBoxFor(m => m.Key, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Key (Base 64)",
+       @required = ""
+
+   })
+    </div>
+    <div class="form-group">
+        <label for="iv" class="control-label col-sm-2">IV</label>
+        @Html.TextBoxFor(m => m.IV, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Key (Base 64)",
+       @required = ""
+   })
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Decrypt</button></div>
+    </div>
+}

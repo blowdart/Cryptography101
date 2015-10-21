@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Frequency Analysis Key Discovery";
+}
+
+<h1>Frequency Analysis Key Discovery</h1>
+@using (Html.BeginForm("FrequencyAnalysis", "CaesarCipher", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+<h2>Input</h2>
+<div class="form-group">
+    <label for="cipherText" class="control-label col-sm-2">Cipher Text</label>
+    <input name="cipherText" class="form-control col-sm-10" placeholder="plaintext (a-z)" pattern="[a-z ]+" required title="lower case letters and spaces only." value="@ViewBag.CipherText">
+</div>
+<div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Crack</button></div>
+</div>
+}
+
+@if (ViewBag.PlainText != null)
+{
+    <h2>Cracked</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@ViewBag.Key</td>
+                <td>@ViewBag.PlainText</td>
+            </tr>
+        </tbody>
+    </table>
+}

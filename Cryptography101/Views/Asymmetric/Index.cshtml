@@ -1,0 +1,66 @@
+﻿@model Cryptography101.Controllers.AsymmetricModel
+
+@{
+    ViewBag.Title = "Asymmetric Encryption";
+}
+
+<h1>Asymmetric Encryption</h1>
+
+
+@using (Html.BeginForm("Index", "Asymmetric", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <h2>Encrypt</h2>
+    <input type="hidden" name="Action" value="encrypt" />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PlainText, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.PlainText, new
+   {
+       @class = "form-control col-sm-10",
+       @placeHolder = "plainText",
+       @required = ""
+   })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RecipientThumbprint, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.RecipientThumbprint, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Recipient Thumbprint",
+       @required = ""
+   })
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Encrypt</button></div>
+    </div>
+}
+
+@using (Html.BeginForm("Index", "Asymmetric", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <h2>Encrypt</h2>
+    <input type="hidden" name="Action" value="decrypt" />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CipherText, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.CipherText, new
+   {
+       @class = "form-control col-sm-10",
+       @placeHolder = "cipherText",
+       @required=""
+   })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.RecipientThumbprint, new { @class = "control-label col-sm-2" })
+        @Html.TextBoxFor(m => m.RecipientThumbprint, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Recipient Thumbprint",
+       @required = ""
+   })
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Decrypt</button></div>
+    </div>
+}

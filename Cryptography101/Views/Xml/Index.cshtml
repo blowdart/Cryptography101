@@ -1,0 +1,81 @@
+﻿@model Cryptography101.Views.XmlModel
+
+@{
+    ViewBag.Title = "XML Signing and Encrypting";
+}
+
+<h2>XML Signing and Encrypting</h2>
+
+@using (Html.BeginForm("Index", "Xml", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+<h2>Encrypt</h2>
+<input type="hidden" name="Action" value="encrypt" />
+
+<div class="form-group">
+    @Html.LabelFor(m => m.PlainText, new { @class = "control-label col-sm-2" })
+    @Html.TextAreaFor(m => m.PlainText, new
+   {
+       @class = "form-control col-sm-10",
+       @placeHolder = "plainText",
+       @required = "",
+       @rows = "5"
+   })
+</div>
+
+    if (!string.IsNullOrWhiteSpace(Model.SenderSubject))
+    {
+<div class="form-group">
+    @Html.LabelFor(m => m.SenderSubject, new { @class = "control-label col-sm-2" })
+    @Html.TextBoxFor(m => m.SenderSubject, new
+       {
+           @class = "form-control col-sm-10",
+           @placeholder = "",
+           @disabled = ""
+       })
+</div>
+    }
+
+<div class="form-group">
+    @Html.LabelFor(m => m.SenderThumbprint, new { @class = "control-label col-sm-2" })
+    @Html.TextBoxFor(m => m.SenderThumbprint, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Sender Thumbprint",
+       @required = ""
+   })
+</div>
+<div class="form-group">
+    @Html.LabelFor(m => m.RecipientThumbprint, new { @class = "control-label col-sm-2" })
+    @Html.TextBoxFor(m => m.RecipientThumbprint, new
+   {
+       @class = "form-control col-sm-10",
+       @placeholder = "Recipient Thumbprint",
+       @required = ""
+   })
+</div>
+<div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Encrypt and Sign</button></div>
+</div>
+}
+
+@using (Html.BeginForm("Index", "Xml", new { }, FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <h2>Decrypt</h2>
+    <input type="hidden" name="Action" value="decrypt" />
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Envelope, new { @class = "control-label col-sm-2" })
+        @Html.TextAreaFor(m => m.Envelope, new
+   {
+       @class = "form-control col-sm-10",
+       @placeHolder = "cipherText",
+       @required = "",
+       @rows = "10"
+   })
+    </div>
+    <div class="form-group">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-10"><button class="btn btn-lg btn-primary" type="submit">Decrypt and Validate</button></div>
+    </div>
+}
