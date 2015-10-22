@@ -1,0 +1,31 @@
+﻿
+<div class="form-group">
+    <div class="col-sm-2"></div>
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a href="#thumbprint-collapse" data-toggle="collapse">About thumbprint values</a>
+                </h4>
+            </div>
+            <div id="thumbprint-collapse" class="panel-body panel-collapse collapse">
+                The sample values here work great on Blowdart's computer. To run it on
+                your own computer you have to use a thumbrint of a certificate from
+                your own store, to which you have the private key.
+                <ol>
+                    <li>Start mmc</li>
+                    <li>Add certificate snap-in, for "My User Account"</li>
+                    <li>Expand Personal->Certificates</li>
+                    <li>Find a certificate marked with a golden key symbol</li>
+                    <li>Double click the certificate to open it</li>
+                    <li>Copy the thumbprint (far down on the detilas tab)</li>
+                    <li>Remove all spaces and the hidden initial character</li>
+                    <li>Enter the resulting value</li>
+                </ol>
+                It's possible to use the same thumbprint for both values, but
+                to get a more realistic feel different certificates should be
+                used.
+            </div>
+        </div>
+    </div>
+</div>
