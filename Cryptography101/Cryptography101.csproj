@@ -185,6 +185,7 @@
     <Content Include="Views\Asymmetric\SignAndEncrypt.cshtml" />
     <Content Include="Views\Xml\Index.cshtml" />
     <Content Include="Views\Password\Index.cshtml" />
+    <Content Include="Views\Shared\_ThumbprintInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
