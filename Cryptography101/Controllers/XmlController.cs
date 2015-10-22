@@ -84,8 +84,19 @@ namespace Cryptography101.Controllers
                 }
 
                 signedXml.LoadXml((XmlElement)nodeList[0]);
-                AsymmetricAlgorithm signingKey;
 
+                // XML signatures allows signing only parts of a document or
+                // even worse, can refer to another resource that's not even
+                // part of the document containing the signature. To make
+                // sure that the signature we're validating is actually signing
+                // the document we have to check the reference. An empty
+                // reference refers to the entire enclosing document.
+                if(signedXml.SignedInfo.References.Cast<Reference>().Single().Uri != "")
+                {
+                    throw new Exception("Signature does not refer to entire document. Validating signatures for part of the document is not supported by this code.");
+                }
+
+                AsymmetricAlgorithm signingKey;
                 if (!signedXml.CheckSignatureReturningKey(out signingKey))
                 {
                     throw new Exception("Invalid Signature");
