@@ -11,7 +11,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Xml;
 
-namespace Cryptography101.Views
+namespace Cryptography101.Controllers
 {
     public class XmlController : Controller
     {
